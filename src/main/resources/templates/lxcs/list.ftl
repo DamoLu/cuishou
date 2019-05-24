@@ -2,10 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>菜鸟教程(runoob.com)</title>
+    <title>cuishou</title>
 </head>
 <body>
-<h1>我的第一个标题</h1>
-<p>我的第一个段落。</p>
+    <table id="listTable">
+            <tr>
+                <th>组名: ${wsxdAllocateGroup.groupName}</th>
+                <th>处理人员: ${wsxdAllocateGroup.odvsName}</th>
+                <th>逾期天数: ${wsxdAllocateGroup.maxOverdueDay}</th>
+                <th>机构: ${wsxdAllocateGroup.appOrgEnum.getName()}</th>
+            </tr>
+    </table>
 </body>
 </html>

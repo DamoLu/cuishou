@@ -1,5 +1,6 @@
 package com.wsjr.cuishou.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.wsjr.cuishou.enums.AppOrgEnum;
 import com.wsjr.cuishou.utils.EnumUtil;
 
@@ -146,7 +147,8 @@ public class WsxdAllocateGroup {
         this.delFlag = delFlag == null ? null : delFlag.trim();
     }
 
+    @JsonIgnore
     public AppOrgEnum getAppOrgEnum() {
-       return EnumUtil.getByCode(appOrg, AppOrgEnum.class);
+        return EnumUtil.getByCode(appOrg, AppOrgEnum.class);
     }
 }

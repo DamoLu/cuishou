@@ -2,9 +2,11 @@ package com.wsjr.cuishou.enums;
 
 public enum AppOrgEnum implements CodeEnum{
 
-    a("01", "网商"), b("02", "九康"), c("03", "分蛋"), d("04", "嘉禾");
-    private String code;
-    private String name;
+    appOrg1("01", "网商"), appOrg2("02", "九康"),
+    appOrg3("03", "分蛋"), appOrg4("04", "嘉禾");
+     private String name;
+     private String code;
+
     private AppOrgEnum(String code, String name) {
         this.code = code;
         this.name = name;
@@ -12,6 +14,10 @@ public enum AppOrgEnum implements CodeEnum{
 
     @Override
     public String getCode() {
-        return null;
+        return code;
+    }
+
+    public String getName() {
+        return name;
     }
 }

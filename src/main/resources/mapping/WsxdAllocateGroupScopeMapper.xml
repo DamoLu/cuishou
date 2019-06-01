@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wsjr.cuishou.mapper.WsxdAllocateGroupScopeMapper">
+  <resultMap id="BaseResultMap" type="com.wsjr.cuishou.entity.WsxdAllocateGroupScope">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
+    <result column="group_id" jdbcType="VARCHAR" property="groupId" />
+    <result column="app_org" jdbcType="VARCHAR" property="appOrg" />
+    <result column="app_org_name" jdbcType="VARCHAR" property="appOrgName" />
+    <result column="department_id" jdbcType="VARCHAR" property="departmentId" />
+    <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
+    <result column="has_common_pool" jdbcType="CHAR" property="hasCommonPool" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, group_name, group_id, app_org, app_org_name, department_id, department_name, 
+    has_common_pool, create_by, create_date, update_by, update_date, remarks, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wsxd_allocate_group_scope
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from wsxd_allocate_group_scope
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wsjr.cuishou.entity.WsxdAllocateGroupScope">
+    insert into wsxd_allocate_group_scope (id, group_name, group_id, 
+      app_org, app_org_name, department_id, 
+      department_name, has_common_pool, create_by, 
+      create_date, update_by, update_date, 
+      remarks, del_flag)
+    values (#{id,jdbcType=VARCHAR}, #{groupName,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, 
+      #{appOrg,jdbcType=VARCHAR}, #{appOrgName,jdbcType=VARCHAR}, #{departmentId,jdbcType=VARCHAR}, 
+      #{departmentName,jdbcType=VARCHAR}, #{hasCommonPool,jdbcType=CHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wsjr.cuishou.entity.WsxdAllocateGroupScope">
+    insert into wsxd_allocate_group_scope
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="groupName != null">
+        group_name,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+      <if test="appOrg != null">
+        app_org,
+      </if>
+      <if test="appOrgName != null">
+        app_org_name,
+      </if>
+      <if test="departmentId != null">
+        department_id,
+      </if>
+      <if test="departmentName != null">
+        department_name,
+      </if>
+      <if test="hasCommonPool != null">
+        has_common_pool,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null">
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="appOrg != null">
+        #{appOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="appOrgName != null">
+        #{appOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentId != null">
+        #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null">
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="hasCommonPool != null">
+        #{hasCommonPool,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wsjr.cuishou.entity.WsxdAllocateGroupScope">
+    update wsxd_allocate_group_scope
+    <set>
+      <if test="groupName != null">
+        group_name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="appOrg != null">
+        app_org = #{appOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="appOrgName != null">
+        app_org_name = #{appOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentId != null">
+        department_id = #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null">
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="hasCommonPool != null">
+        has_common_pool = #{hasCommonPool,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wsjr.cuishou.entity.WsxdAllocateGroupScope">
+    update wsxd_allocate_group_scope
+    set group_name = #{groupName,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=VARCHAR},
+      app_org = #{appOrg,jdbcType=VARCHAR},
+      app_org_name = #{appOrgName,jdbcType=VARCHAR},
+      department_id = #{departmentId,jdbcType=VARCHAR},
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      has_common_pool = #{hasCommonPool,jdbcType=CHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByGroupId" resultMap="BaseResultMap">
+    select * from wsxd_allocate_group_scope where group_id = #{groupId}
+  </select>
+</mapper>

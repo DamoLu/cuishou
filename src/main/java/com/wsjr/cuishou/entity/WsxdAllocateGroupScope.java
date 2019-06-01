@@ -1,22 +1,23 @@
 package com.wsjr.cuishou.entity;
 
 import java.util.Date;
-import java.util.List;
 
-public class WsxdAllocateGroup {
+public class WsxdAllocateGroupScope {
     private String id;
 
     private String groupName;
 
-    private String odvs;
+    private String groupId;
 
-    private String odvsName;
+    private String appOrg;
 
-    private Integer minOverdueDay;
+    private String appOrgName;
 
-    private Integer maxOverdueDay;
+    private String departmentId;
 
-    private String status;
+    private String departmentName;
+
+    private String hasCommonPool;
 
     private String createBy;
 
@@ -29,16 +30,6 @@ public class WsxdAllocateGroup {
     private String remarks;
 
     private String delFlag;
-
-    private List<WsxdAllocateGroupScope> wsxdAllocateGroupScopeList;
-
-    public List<WsxdAllocateGroupScope> getWsxdAllocateGroupScopeList() {
-        return wsxdAllocateGroupScopeList;
-    }
-
-    public void setWsxdAllocateGroupScopeList(List<WsxdAllocateGroupScope> wsxdAllocateGroupScopeList) {
-        this.wsxdAllocateGroupScopeList = wsxdAllocateGroupScopeList;
-    }
 
     public String getId() {
         return id;
@@ -56,44 +47,52 @@ public class WsxdAllocateGroup {
         this.groupName = groupName == null ? null : groupName.trim();
     }
 
-    public String getOdvs() {
-        return odvs;
+    public String getGroupId() {
+        return groupId;
     }
 
-    public void setOdvs(String odvs) {
-        this.odvs = odvs == null ? null : odvs.trim();
+    public void setGroupId(String groupId) {
+        this.groupId = groupId == null ? null : groupId.trim();
     }
 
-    public String getOdvsName() {
-        return odvsName;
+    public String getAppOrg() {
+        return appOrg;
     }
 
-    public void setOdvsName(String odvsName) {
-        this.odvsName = odvsName == null ? null : odvsName.trim();
+    public void setAppOrg(String appOrg) {
+        this.appOrg = appOrg == null ? null : appOrg.trim();
     }
 
-    public Integer getMinOverdueDay() {
-        return minOverdueDay;
+    public String getAppOrgName() {
+        return appOrgName;
     }
 
-    public void setMinOverdueDay(Integer minOverdueDay) {
-        this.minOverdueDay = minOverdueDay;
+    public void setAppOrgName(String appOrgName) {
+        this.appOrgName = appOrgName == null ? null : appOrgName.trim();
     }
 
-    public Integer getMaxOverdueDay() {
-        return maxOverdueDay;
+    public String getDepartmentId() {
+        return departmentId;
     }
 
-    public void setMaxOverdueDay(Integer maxOverdueDay) {
-        this.maxOverdueDay = maxOverdueDay;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId == null ? null : departmentId.trim();
     }
 
-    public String getStatus() {
-        return status;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName == null ? null : departmentName.trim();
+    }
+
+    public String getHasCommonPool() {
+        return hasCommonPool;
+    }
+
+    public void setHasCommonPool(String hasCommonPool) {
+        this.hasCommonPool = hasCommonPool == null ? null : hasCommonPool.trim();
     }
 
     public String getCreateBy() {

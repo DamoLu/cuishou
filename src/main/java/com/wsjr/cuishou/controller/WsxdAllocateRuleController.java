@@ -9,6 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * @Description: java类作用描述
  * @Author: luqihua
@@ -48,6 +52,16 @@ public class WsxdAllocateRuleController {
                 break;
         }
         return new JSONObject();
+    }
+
+    public static void main(String[] args) {
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("01", "my");
+        hashMap.put("02", "name");
+        hashMap.put("03", "liming");
+
+        Set<Map.Entry<String, String>> entries = hashMap.entrySet();
+        System.out.println(entries);
     }
 
 }

@@ -5,13 +5,10 @@
     <title>cuishou</title>
 </head>
 <body>
-    <table id="listTable">
-            <tr>
-                <th>组名: ${wsxdAllocateGroup.groupName}</th>
-                <th>处理人员: ${wsxdAllocateGroup.odvsName}</th>
-                <th>逾期天数: ${wsxdAllocateGroup.maxOverdueDay}</th>
-                <th>机构: ${wsxdAllocateGroup.appOrgEnum.getName()}</th>
-            </tr>
-    </table>
+    <p>
+        <#list wsxdAllocateGroupScopeList as wsxdAllocateGroupScope>
+            <br>${wsxdAllocateGroupScope.appOrgName}---${wsxdAllocateGroupScope.departmentName}---<#if wsxdAllocateGroupScope.hasCommonPool == '0'>是<#else>否</#if>
+        </#list>
+    </p>
 </body>
 </html>

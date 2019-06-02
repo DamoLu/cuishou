@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/lxcs-admin")
+@RequestMapping("lxcs-admin")
 public class WsxdAllocateGroupController {
 
     @Autowired
@@ -26,6 +26,7 @@ public class WsxdAllocateGroupController {
     public String list(ModelMap modelMap) {
         List<WsxdAllocateGroupScope> wsxdAllocateGroupScopeList = wsxdAllocateGroupScopeMapper.selectByGroupId("1");
         WsxdAllocateGroup wsxdAllocateGroup = wsxdAllocateGroupMapper.selectByPrimaryKey("1");
+        modelMap.addAttribute(wsxdAllocateGroupScopeList);
         return  "lxcs/list";
     }
 

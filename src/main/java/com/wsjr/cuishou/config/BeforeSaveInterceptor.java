@@ -8,6 +8,8 @@ import org.apache.ibatis.plugin.*;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.Properties;
 
@@ -19,7 +21,7 @@ import java.util.Properties;
  * @date 2019/6/4
  */
 //使用@Intercepts标注这是个mybatis插件，@Signature标注要拦截的操作
-@Component
+//@Component
 @Intercepts({@Signature(type = Executor.class, method = "update", args ={MappedStatement.class, Object.class})})
 public class BeforeSaveInterceptor implements Interceptor {
     @Override

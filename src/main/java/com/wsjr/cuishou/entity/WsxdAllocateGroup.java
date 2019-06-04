@@ -1,13 +1,10 @@
 package com.wsjr.cuishou.entity;
 
-import com.wsjr.cuishou.annotation.*;
-
 import java.util.Date;
 import java.util.List;
 
 public class WsxdAllocateGroup {
 
-    @UUID
     private String id;
 
     private String groupName;
@@ -22,13 +19,12 @@ public class WsxdAllocateGroup {
 
     private String status;
 
-    @CreateBy
     private String createBy;
-    @CreateTime
+
     private Date createDate;
-    @UpdateBy
+
     private String updateBy;
-    @UpdateTime
+
     private Date updateDate;
 
     private String remarks;

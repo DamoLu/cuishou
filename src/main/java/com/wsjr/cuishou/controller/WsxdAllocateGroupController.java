@@ -24,9 +24,15 @@ public class WsxdAllocateGroupController {
 
     @GetMapping("list")
     public String list(ModelMap modelMap) {
-        List<WsxdAllocateGroupScope> wsxdAllocateGroupScopeList = wsxdAllocateGroupScopeMapper.selectByGroupId("1");
-        WsxdAllocateGroup wsxdAllocateGroup = wsxdAllocateGroupMapper.selectByPrimaryKey("1");
-        modelMap.addAttribute(wsxdAllocateGroupScopeList);
+        WsxdAllocateGroup wsxdAllocateGroup = new WsxdAllocateGroup();
+        wsxdAllocateGroup.setGroupName("处理组12211");
+        wsxdAllocateGroup.setOdvs("01|02|03");
+        wsxdAllocateGroup.setOdvsName("damo|rachel|anna");
+        wsxdAllocateGroup.setMinOverdueDay(1);
+        wsxdAllocateGroup.setMaxOverdueDay(100);
+        wsxdAllocateGroup.setStatus("1");
+        wsxdAllocateGroup.setMaxOverdueDay(1254);
+        wsxdAllocateGroupMapper.insert(wsxdAllocateGroup);
         return  "lxcs/list";
     }
 

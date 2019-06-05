@@ -15,6 +15,14 @@ import java.util.UUID;
  * @Description: java类作用描述
  * @Author: luqihua
  * @CreateDate: 2019/6/4$ 22:44$
+ *
+ *
+<plugins>
+<!--这里配置拦截器-->
+<plugin interceptor="...MyBatisInterceptor"/>
+
+</plugins>
+ *
  */
 
 @Component

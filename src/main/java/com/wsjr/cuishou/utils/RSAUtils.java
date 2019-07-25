@@ -128,11 +128,60 @@ public class RSAUtils {
         out.close();
         return new String(decrptedData, StandardCharsets.UTF_8);
     }
+
+    /**
+    　　* @description: 签名
+    　　* @author luqihua
+    　　* @date 2019/7/25 9:22
+    　　*/
+    public static String sign(String data, PrivateKey privateKey) throws Exception{
+        byte[] privateKeyEncoded = privateKey.getEncoded();
+        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateKeyEncoded);
+        PrivateKey key = KeyFactory.getInstance("RSA").generatePrivate(keySpec);
+        Signature signature = Signature.getInstance("MD5withRSA");
+        signature.initSign(key);
+        signature.update(data.getBytes());
+        return new String(Base64.encodeBase64(signature.sign()));
+    }
+
+    /**
+    　　* @description: 验签
+    　　* @author luqihua
+    　　* @date 2019/7/25 11:29
+        * @param srcData: 原始字符串
+    　　*/
+    public static boolean verify(String srcData, PublicKey publicKey, String sign) throws Exception{
+        byte[] publicKeyEncoded = publicKey.getEncoded();
+        X509EncodedKeySpec encodedKeySpec = new X509EncodedKeySpec(publicKeyEncoded);
+        PublicKey key = KeyFactory.getInstance("RSA").generatePublic(encodedKeySpec);
+        Signature signature = Signature.getInstance("MD5withRSA");
+        signature.initVerify(key);
+        signature.update(srcData.getBytes());
+       return signature.verify(Base64.decodeBase64(sign.getBytes()));
+    }
+
     public static void main(String[] args) throws Exception{
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        while (outputStream.size() != 10) {
-            outputStream.write(System.in.read());
-        }
-        System.out.println();
+        KeyPair keyPair = getKeyPair();
+        String privateKey = new String(Base64.encodeBase64(keyPair.getPrivate().getEncoded()));
+        String publicKey = new String(Base64.encodeBase64(keyPair.getPublic().getEncoded()));
+        System.out.println("私钥" + privateKey);
+        System.out.println("公钥" + publicKey);
+        //RSA 加密
+        String data = "有人的地方就有江湖";
+        String encryptData = encrypt(data, getPublicKey(publicKey));
+        System.out.println("加密后内容:" + encryptData);
+
+        //RSA 解密
+        String decryptData = decrypt(encryptData, getPrivateKey(privateKey));
+        System.out.println("解密后内容:" + decryptData );
+
+        //RSA 签名
+        String signature = "DamoLu";
+        String sign = sign(signature, getPrivateKey(privateKey));
+        System.out.println("签名"+ sign);
+
+        //RSA 验签
+        boolean result = verify(signature, getPublicKey(publicKey), sign);
+        System.out.println("验签结果:" + result);
     }
 }
